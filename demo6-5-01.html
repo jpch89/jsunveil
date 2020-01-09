@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 利用闭包的知识，修改这段代码，让代码的执行结果为每隔秒输出 1, 2, 3, 4, 5
+    /*
+    for (var i = 1; i <= 5; i++) {
+      setTimeout(function timer() {
+        console.log(i)
+      }, i * 1000)
+    }
+    */
+
+    /*
+    for (var i = 1; i <= 5; i++) {
+      (function(i) {
+        setTimeout(function timer() {
+          console.log(i)
+        }, i * 1000)
+      })(i)
+    }
+    */
+
+    for (var i = 1; i <= 5; i++) {
+      setTimeout((function(i) {
+        return function timer() {
+          console.log(i)
+        }
+      })(i), i * 1000)
+    }
+  </script>
+</body>
+
+</html>
