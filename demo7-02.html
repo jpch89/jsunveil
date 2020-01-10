@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    'use strict';
+
+    var a = 20;
+    function foo() {
+      var a = 1;
+      var obj = {
+        a: 10,
+        c: this.a + 20
+      }
+      return obj.c
+    }
+
+    console.log(window.foo())  // 40
+    console.log(foo())  // TypeError
+  </script>
+</body>
+</html>
